@@ -1,0 +1,15 @@
+/* comment */
+
+*{
+	color: grey;
+	background: black;
+	font-family: sans-serif;
+}
+
+h1{
+	color: red;
+}
+
+a{
+	font-size: 50px;
+}
