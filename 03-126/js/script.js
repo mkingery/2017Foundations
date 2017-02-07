@@ -1,8 +1,0 @@
-//Comment
-
-/*
-	Multi Line
-	Commenting
-*/
-
-
