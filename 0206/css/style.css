@@ -3,5 +3,43 @@
 
 body{
 	font-family: 'Exo 2', sans-serif;
+	background-color: lightgrey;
+	margin: 0;
 }
 
+.left{
+	float: left;
+	margin: 3vmin;
+	border: 1px solid black; 
+}
+
+.right{
+	float: right;
+	margin: 3vmin;
+	border: 1px solid black;
+}
+
+header{
+	height: 15vh;
+	background-color: grey;
+}
+
+#main{
+	width: 70%;
+	background-color: white;
+	min-height: 75vh;
+	float: left;
+}
+
+#side{
+	width: 30%;
+	background-color: white;
+	min-height: 75vh;
+	float: right;
+}
+
+footer{
+	height: 10vh;
+	background-color: grey;
+	clear: both;
+}
