@@ -13,6 +13,10 @@ header{
 	height: 90vh;
 	background-color: rgb(154, 189, 103);
 	/* text-align: center; */
+	background-image: url(SixteenDesignImages/4siluetBG.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: bottom;
 }
 
 #logo{
@@ -72,5 +76,6 @@ header{
 	box-sizing: border-box;
 	left: 50%;
 	transform: translate(-50%); */
-	
 }
+
+background
