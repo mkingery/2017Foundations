@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			
+			a{
+				font-size: 10vh;
+				color: grey;
+			}
+			
+			a:hover{
+				color: red;
+				text-decoration: none;
+			}
+			
+			input{
+				width: 25vw;
+				border-color: red;
+			}
+			
+			input:focus{
+				border-color: green;
+				background-color: red;
+				outline: none;
+			}
+			
+			label.error+input{
+				background-color: red;
+			}
+			
+			#selectItems > span{
+				color: black;
+				font-weight: bold;
+			}
+			
+			#selectItems > .deselectItems ~ span{
+				color: lightgrey;
+				font-weight: normal;
+			}
+			
+			a[target="_blank"]{
+				color: blue;
+			}
+			
+			a[href*="google"]{
+				color: green;
+			}
+			
+			tr:nth-of-type(even){
+				background-color: lightgrey;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Gender</th>
+			</tr>
+			<tr>
+				<td>First1</td>
+				<td>402###</td>
+				<td>Male</td>
+			</tr>
+			<tr>
+				<td>First1</td>
+				<td>402###</td>
+				<td>Male</td>
+			</tr>
+			<tr>
+				<td>First1</td>
+				<td>402###</td>
+				<td>Male</td>
+			</tr>
+			<tr>
+				<td>First1</td>
+				<td>402###</td>
+				<td>Male</td>
+			</tr>
+			<tr>
+				<td>First1</td>
+				<td>402###</td>
+				<td>Male</td>
+			</tr>
+			<tr>
+				<td>First1</td>
+				<td>402###</td>
+				<td>Male</td>
+			</tr>
+			
+			
+		</table>
+		
+		
+		<div>
+			
+			<label></label><input /><br/>
+			<label></label><input /><br/>
+			<label class="error"></label><input /><br/>
+			<label></label><input /><br/>
+			<label></label><input /><br/>
+			<label></label><input /><br/>
+			
+		</div>
+		
+		<a href="http://google.com" target="_blank">Google</a>
+		<a href="http://apple.com" target="">Apple</a>
+		<a href="http://reddit.com/r/google">Reddit</a>
+		<br/>
+		<br/>
+		<br/>
+		<input type="text" />
+		<input type="text" />
+		<textarea></textarea>
+		<select>
+			<option value="T">True</option>
+			<option value="F">False</option>
+		</select>
+		
+		<br/>
+		<br/>
+		<br/>
+		
+		<div id="selectItems">
+			<span>Item 1</span><br/>
+			<span>Item 2</span><br/>
+			<span>Item 3</span><br/>
+			<span>Item 4</span><br/>
+			<div class="deselectItems"></div>
+			<span>Item 5</span><br/>
+			<span>Item 6</span><br/>
+			<span>Item 7</span><br/>
+		</div>
+	</body>
+</html>

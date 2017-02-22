@@ -1,0 +1,25 @@
+/* comment */
+
+#main{
+    background-image: url("/SixteenDesignImages/DESKTOP/3siluet.png");
+}
+
+#mobileMenu{
+	display: none;
+}
+
+#desktopNav{
+	display: inline;
+}
+
+#desktopNav ul, #desktopNav li{
+	display: inline;
+}
+
+#desktopArrow{
+	display: inline-block;
+}
+
+#arrow{
+	display: none;
+}

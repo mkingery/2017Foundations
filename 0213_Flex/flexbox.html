@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body{
+				height: 100vh;
+			}
+			
+			.center{
+				display: flex;
+				justify-content: center;
+				align-content: center;
+			}
+			
+			#item2{
+				height: 200px;
+				width: 150px;
+			}
+			
+			#container{
+				height: 100%;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-content: center;
+				align-items: center;
+			}
+			
+			div{
+				color: white;
+				font-weight: bold;
+				font-family: sans-serif;
+				font-size: xx-large;
+				text-align: center;
+			}
+			
+			.item{
+				border: 8px solid black;
+				height: 150px;
+				width: 150px;
+				background-color: grey;
+				margin: 1vw;
+				flex-grow: 1;
+				flex-basis: 20%; /* starting size */
+				align-self: start; /* does something... */
+			}
+			
+			/* #item2{
+				order: -1;
+				flex-grow: 5;
+				flex-shrink: 0;
+			} */
+			
+			
+		</style>
+	</head>
+	
+	<body>
+		<div id="container">
+			<div class="item">1</div>
+			<div class="item" id="item2">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+		</div>
+	</body>
+</html>
