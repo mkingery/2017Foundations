@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<!--
+Number Game
+1. Have the computer think of a number between 1 & 100.
+2. Have an input field & submit button for users to guess what the number is.
+3. Allow the user to keep guessing (without changing what number the computer is thinking of).
+4. Display a message if the user is right or wrong.
+Bonus (optional):
+**You can do any / all / none of these**
+1. Have a counter displaying how many times the user has guessed.
+2. Allow the user to set the range they want to guess between (1-100 or 1-10 etc)
+3. Give clues, such as you are close when guess is within 15 or very close when guess is within 5.
+4. Have a button to reset/restart that has the computer think of a new number.
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .error{
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 30vw;
+                height: 20vh;
+                background-color: rgba(255, 255, 255, 0.8);
+                line-height: 20vh;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="guess" />
+        <br/>
+        <button type="button" id="go">Guess</button>
+        <span id="guessCount"></span>
+        <br/><br/>
+        <span id="result"></span>
+        <br/>
+        <br/>
+        <br/>
+        Min: <input id="min" value="1" type="number"/>
+        Max: <input id="max" value="100" type="number"/>
+        <button type="button" id="reset">Reset</button>
+        
+        <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+        <script>
+            function randomNumber(min, max){
+                var minNum = parseInt(min);
+                var maxNum = parseInt(max);
+                var diff = Math.abs(max-min);
+                return parseInt(Math.random() * diff) + min;
+            }
+            
+            var computerNumber = randomNumber(1, 100);
+            var counter = 0;
+            
+            function reset(){
+                var min = parseInt($("#min").val());
+                var max = parseInt($("#max").val());
+                counter = 0;
+                computerNumber = randomNumber(min, max)
+                $("#result").text("");
+                $("#guessCount").text("");
+            }
+            
+            $("input").change(function(){
+                var value = parseInt($(this).val());
+                if(isNaN(value)){
+                    $(this).val(0);
+                    $(".error").remove();
+                    $("body").append("<div class='error'>Only numbers can be entered!</div>");
+                    $(".error").fadeIn(1000, function(){
+                        setTimeout(function(){
+                            $(".error").fadeOut(1000, function(){
+                                $(this).remove();
+                            });
+                        }, 2000);
+                    });
+                }
+            });
+            
+            $("input").keypress(function(e){
+                if(e.which >= 48 && e.which <= 57){
+                    
+                }else{
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+            
+            $("#reset").click(reset);
+            
+            $("#go").click(function(){
+                counter++;
+                var guess = parseInt($("#guess").val());
+                var diff = Math.abs(computerNumber - guess);
+                if(guess == computerNumber){
+                    $("#result").text("You got it!");
+                    $("#guessCount").text("It took you "+counter+" times to get the number");
+                }else if(diff <= 5){
+                    $("#result").text("You're super close!");
+                    $("#guessCount").text("You've guessed "+counter+" times");
+                }else if(diff <= 15){
+                    $("#result").text("You're getting close!");
+                    $("#guessCount").text("You've guessed "+counter+" times");
+                }else{
+                    $("#result").text("Nope! Keep trying!");
+                    $("#guessCount").text("You've guessed "+counter+" times");
+                }
+            });
+        </script>
+    </body>
+</html>
+
+
+
+<!--
+<html>
+    <head>
+        <style>
+            
+            
+            
+        </style>
+    </head>
+    <body>
+       
+       <input id="guess" />
+       <button type="button" id="go">Check</button>
+       <br/>
+       <br/>
+       <span id="guessCount"></span>
+       <br/>
+       <br/>
+       <span id="Result"></span>
+       <br/>
+       <br/>
+       <button type="button" id="reset">Reset</button>
+       <div id="list"></div>
+               
+        <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+        <script>
+	        
+	        var computerNumber = parseInt(Math.random() *100) + 1;
+	        
+	        var counter = 0;
+	        
+	        function reset(){
+		        counter = 0;
+		        computerNumber = parseInt(Math.random() * 100) +1;
+		        $("#results").text("");
+		        $("#guessCount").text("");
+	        }
+	        
+// 	        calling function later so no ( / )parens at the end!!!
+	        $("#reset").click(reset);
+	        
+	        $("#go").click(funciton(){
+		        counter++;
+		        var guess = parseInt($("#guess").val());
+		        var diff = Math.abs(computerNumber - guess)
+		        if(guess == computerNumber){
+			        $("#results").text("You got it!");
+			        $("#guessCount").text("It took you "+counter+" times");
+			    }else if(diff <= 5){
+				    $("#results").text("~5");
+				    $("#guessCount").text("It took you "+counter+" times");
+			    }else if(diff <= 15){
+				    $("#results").text("~15");
+				    $("#guessCount").text("It took you "+counter+" times");
+				}else{
+				    $("#results").text("Newp");
+				    $("#guessCount").text("It took you "+counter+" times");
+
+				}
+		    });
+	        
+/*
+	        function randomColor(){
+		        var red = parseInt(Math.random()*255);
+		        var blue = parseInt(Math.random()*255);
+		        var green = parseInt(Math.random()*255);
+		        return "rgb("+red+", "+blue+", "+green+ ")";
+	        }
+	        
+	        var intervalId = setInterval(function(){
+		        $("#header").css("background-color", randomColor());
+	        }, 2000);
+*/
+            
+/*
+            $("#getData").click(function(){
+	            var zip = $("#zip").val();
+            	$.ajax({
+					url: "http:api.openweathermap.org/data/2.5/weather",
+					data: {
+						zip: zip+",us",
+						APPID: "442a58545b0effda4684a876b7397473",
+						units: "Imperial",
+					}
+*/
+/*
+				}).success(function(data){
+					$(".msg").remove();
+					$("body").append("<span class='msg'>The current temp is: " + data.main.temp + "</span")
+				});
+			});
+			
+            
+            $("#guess").click(function(){
+	            var name = $("#name").val();
+	            var important = $("#important").prop("checked");
+	            $("#list").append("<div class='item'>" +name+ "</div");
+	            if(important){
+		            $("#list").find(".item:last-of-type").css("color", "red");
+		        }
+            });  
+*/
+            
+        </script>
+    </body>
+</html>
+-->
+
+
+
+
+<!--
+Number Game
+1. Have the computer think of a number between 1 & 100.
+2. Have an input field & submit button for users to guess what the number is.
+3. Allow the user to keep guessing (without changing what number the computer is thinking of).
+4. Display a message if the user is right or wrong.
+Bonus (optional):
+**You can do any / all / none of these**
+1. Have a counter displaying how many times the user has guessed.
+2. Allow the user to set the range they want to guess between (1-100 or 1-10 etc)
+3. Give clues, such as you are close when guess is within 15 or very close when guess is within 5.
+4. Have a button to reset/restart that has the computer think of a new number.
+-->
